@@ -11,3 +11,7 @@ steps:
   - run: echo 'Hi {{ env.name }}'  # Hi Tony
     env:
       name: Tony
+  - run: echo 'Hi {{ task_id }}'
+  - run: echo 'Hi {{ app.user_name }}'
+  - run: echo 'Hi {{ git.event_name }}'
+  - run: echo 'suceess end'
