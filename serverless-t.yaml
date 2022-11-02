@@ -1,0 +1,8 @@
+name: "On Push masters"
+
+
+steps:
+  - run: echo 'Hi =========='  # Hi Heimanba
+  - run: echo 'Hi ==========}'
+  - run: echo 'Hi----------'
+  - run: echo 'Hi -.-'
