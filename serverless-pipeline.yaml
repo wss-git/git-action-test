@@ -2,7 +2,7 @@ name: "On Push masters"
 
 steps:
   - name: echo
-    uses: '/tmp/code/lib'
+    plugin: '@serverless-cd/npm-publish'
     # if: ${{ contains(github.ref, 'engine')}}
     inputs:
       registry: //registry.npmjs.org
