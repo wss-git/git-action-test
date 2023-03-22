@@ -1,5 +1,5 @@
 name: "On Push masters"
-#    hhh
+#    h
 
 runtimes:
   - nodejs17
