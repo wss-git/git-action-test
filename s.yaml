@@ -2,7 +2,7 @@ edition: 1.0.0
 name: hello-world-app
 access: "quanxi"
 
-vars: # 全
+vars: # 
   region: "cn-hangzhou"
   service:
     name: "test-cd"
