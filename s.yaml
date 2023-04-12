@@ -1,0 +1,55 @@
+edition: 1.0.0
+name: hello-world-app
+access: "wss-root"
+
+vars: # 全局变量
+  region: "cn-hangzhou"
+  service:
+    name: "hello-world-service"
+    description: 'hello world by serverless devs'
+
+services:
+  helloworld:
+    component: fc
+    props:
+      region: ${vars.region} # 关于变量的使用方法，可以参考：https://www.serverless-devs.com/serverless-devs/yaml#变量赋值
+      service: ${vars.service}
+      function:
+        name: "start-fc-http-nodejs14"
+        description: 'hello world by serverless devs'
+        runtime: nodejs14
+        codeUri: ./code
+        handler: index.handler
+        memorySize: 128
+        timeout: 60
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+      customDomains:
+        - domainName: test.shoushuai.top
+          protocol: HTTP,HTTPS
+          certId: 9679234
+          tlsConfig:
+            minVersion: TLSv1.2
+            maxVersion: TLSv1.3
+            cipherSuites:
+            - TLS_RSA_WITH_AES_128_CBC_SHA
+            - TLS_RSA_WITH_AES_256_CBC_SHA
+            - TLS_RSA_WITH_AES_128_GCM_SHA256
+            - TLS_RSA_WITH_AES_256_GCM_SHA384
+            - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+            - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+            - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+            - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+            - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+            - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+            - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+            - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+            - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+            - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+          routeConfigs:
+            - path: '/*'
