@@ -1,10 +1,10 @@
 name: "On Push masters"
 #    h
 
-runtimes:
-  - nodejs17
-  - python3.10
-  - java17
+# runtimes:
+#   - nodejs17
+#   - python3.10
+#   - java17
    
 steps:
   - run: env
